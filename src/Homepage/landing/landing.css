@@ -1,0 +1,67 @@
+.container {
+    position: relative; 
+    background-image: url("back.png");
+    height: 40rem;
+    width: 100vw;
+}
+
+.content {
+    padding-left: 10vw;
+    padding-top: 4vh;
+    position: absolute;
+    top: 0; left: 0; 
+}
+
+.emptymt{
+  height: 11vh;
+}
+
+.fst_title{
+  font-size: 72px;
+  font-family: 'Outfit',sans-serif;
+  line-height: 150%;
+  margin: 0%;
+  margin-top: 0.5rem;
+  color: white;
+  text-align: left;
+}
+
+.FancyTitle{
+  display: flex;
+  margin-top: -5%;
+  margin-left: 0%;
+  flex-direction: inline;
+  
+}
+.Highlighter{
+  width: 22rem;
+  margin-top: -1.5rem;
+  margin-left: -1rem;
+}
+.subtitle{
+  margin: 0%;
+  margin-top: -2rem;
+}
+.CTO-btn {
+  position: flex-end;
+  margin-top: 3rem;
+}
+
+@media screen and (max-width: 900px) {
+  .fst_title{
+    font-size: 60px;
+    font-family: 'Outfit',sans-serif;
+    line-height: 150%;
+    margin: 0%;
+    margin-top: 0.5rem;
+    color: white;
+    text-align: left;
+  }
+  
+.Highlighter{
+  width: 15rem;
+  margin-top: -0.5rem;
+  margin-left: -1rem;
+}
+}
+
