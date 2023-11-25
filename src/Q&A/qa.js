@@ -4,7 +4,6 @@ import Navbar from '../homepage/navbar/navbar';
 import '../App.css'
 import back from'./backqa.png'
 import {motion} from "framer-motion"
-import emailjs from 'emailjs-com';
 import { renderMatches } from 'react-router-dom';
 import TextTitle from '../stylingComponents/Texts/Title';
 import TextP from '../stylingComponents/Texts/Paragraph';
@@ -24,21 +23,6 @@ function QAPage(){
         borderColor: "transparent",
         marginTop: "3vh",
     };
-    function handleSubmit(event) {
-        event.preventDefault();
-        emailjs.send('service_jwaw1jn', 'template_6gs389b', {
-          from_name: name,
-          from_email: email,
-          question: question,
-        }, '_8jBYcVxOcYJdlLzl')
-          .then((result) => {
-            console.log(result.text);
-            setShowPopup(false);
-            setShowConfirm(true);
-          }, (error) => {
-            console.log(error.text);
-          });
-      }
 
     return(
         <motion.div className="App"
@@ -124,50 +108,7 @@ function QAPage(){
         <div className='empty-margin-top'></div>
         <Footer></Footer>
         <Navbar></Navbar>
-            <div className='button-div'>
-               {showPopup &&
-                 <div id="overlay" className="show">
-                 <div id = "popup">
-                    <div className='questionform'>
-                    <button className='close-button' onClick={() => setShowPopup(false)}><img src={closeimg} className='qaclosebtn'></img></button>
-                    <div className='questionformheader'>
-                        <TextTitle name='Ask a question' colour='black' ></TextTitle>
-                        <div className='line'></div>
-                    </div>
-                    <form onSubmit={handleSubmit}>
-                        <div className="login-field">
-                            <label htmlFor="name" className="label-qa">Name</label>
-                            <input className="input-qa" placeholder='Enter your name' type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
-                        </div>
-                        <div className="login-field">
-                            <label htmlFor="email" className="label-qa">Email</label>
-                            <input className="input-qa" placeholder='Enter a valid email' type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                        </div>
-                        <div className="login-field">
-                            <label htmlFor="email" className="label-qa">Question</label>
-                            <textarea className="input-qatext" placeholder='Type your question here' type="form-question" id="question" value={question} onChange={(e) => setQuestion(e.target.value)} required />
-                        </div>
-                     <button className='green-btn' style={butStyle} type="submit"><h1 className='green-btn-text-small'>Submit</h1></button>
-                     </form>
-                     </div>
-                     </div>
-                </div>
-                }
-            {showConfirm &&
-                <div id="confirm_overlay" className="show">
-                <div id = "confirm_popup">
-                <div className='confirmform'>
-                <button className='close-button' onClick={() => setShowConfirm(false)}><img src={closeimg} className='qaclosebtn'></img></button>
-                <div className='confirmformheader'>
-                    <TextTitle name='Question sent!' colour='black' ></TextTitle>
-                    <div className='line'></div>
-                    <p className='QuestionText'>we will answer your question shortly!</p>
-                    </div>
-                </div>
-                </div>
-                </div>
-            }
-            </div>
+
             </div>
             
         </motion.div>
