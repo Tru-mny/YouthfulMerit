@@ -1,0 +1,50 @@
+.middle-container {
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.scroll-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.box-container {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    width: 100vw; /* Make the box container as wide as the viewport */
+}
+
+.box {
+    flex: 0 0 85vw; /* Each box takes full viewport width */
+    height: 20rem;
+    box-sizing: border-box;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #00B088;
+    border-radius: 2rem;
+    margin-right: 5rem;
+}
+
+.left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: #5c5c5c;
+    width: 5rem;
+    height: 5rem;
+    z-index: 1;
+}
+
+.right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background: #5c5c5c;
+    width: 5rem;
+    height: 5rem;
+    z-index: 1;
+}
