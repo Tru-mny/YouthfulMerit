@@ -1,36 +1,60 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './middle.css';
 
+const colors = ["#000000", "#000000", "#000000"];
+const delay = 2500;
+
 function Middle() {
-    const [currentScrollIndex, setCurrentScrollIndex] = useState(0);
-    const boxContainerRef = React.useRef(null);
+    const [index, setIndex] = React.useState(0);
+    const timeoutRef = React.useRef(null);
 
-    const scrollBoxes = (direction) => {
-        const numBoxes = boxContainerRef.current.children.length;
-        const boxWidth = boxContainerRef.current.children[0].clientWidth + 10;
-        const maxScrollIndex = Math.max(0, numBoxes - 1);
-
-        if (direction === 'left' && currentScrollIndex > 0) {
-            setCurrentScrollIndex((prevIndex) => prevIndex - 1);
-        } else if (direction === 'right' && currentScrollIndex < maxScrollIndex) {
-            setCurrentScrollIndex((prevIndex) => prevIndex + 1);
+    function resetTimeout() {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
         }
-    };
+    }
 
-    const scrollPosition = currentScrollIndex * (boxContainerRef.current?.children[0].clientWidth + 10) || 0;
-    const transformStyle = { transform: `translateX(-${scrollPosition}px)` };
+    React.useEffect(() => {
+        resetTimeout();
+        timeoutRef.current = setTimeout(
+            () =>
+                setIndex((prevIndex) =>
+                    prevIndex === colors.length - 1 ? 0 : prevIndex + 1
+                ),
+            delay
+        );
+
+        return () => {
+            resetTimeout();
+        };
+    }, [index]);
 
     return (
-        <div className="middle-container">
-            <button className="scroll-button left" onClick={() => scrollBoxes('left')}>&lt;</button>
-            <div className="box-container" ref={boxContainerRef} style={transformStyle}>
-                <div className="box">Box 1</div>
-                <div className="box">Box 2</div>
-                <div className="box">Box 3</div>
-                <div className="box">Box 4</div>
-                {/* Add more boxes as needed */}
+        <div className="slideshow">
+            <div
+                className="slideshowSlider"
+                style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+            >
+                {colors.map((backgroundColor, index) => (
+                    <div
+                        className="slide"
+                        key={index}
+                        style={{ backgroundColor }}
+                    ></div>
+                ))}
             </div>
-            <button className="scroll-button right" onClick={() => scrollBoxes('right')}>&gt;</button>
+
+            <div className="slideshowDots">
+                {colors.map((_, idx) => (
+                    <div
+                        key={idx}
+                        className={`slideshowDot${index === idx ? " active" : ""}`}
+                        onClick={() => {
+                            setIndex(idx);
+                        }}
+                    ></div>
+                ))}
+            </div>
         </div>
     );
 }
