@@ -4,7 +4,6 @@ import back from './back.png'
 import highlighter from './highlight.png'
 import GreenButton from '../../stylingComponents/buttons/greenButton';
 import TextP from '../../stylingComponents/Texts/Paragraph';
-import SidebarTwo from "../../logindashboard/sidebar/sidebartwo";
 
 function Landing(){
     return(
