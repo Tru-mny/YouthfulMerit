@@ -9,10 +9,8 @@ function Navbar() {
   
   var pagePath = window.location.pathname;
   if(pagePath==="/faq") pagenum=4;
-  if(pagePath==="/donate") pagenum=5;
-  if(pagePath==="/paris-agreement") pagenum=1;
-  if(pagePath==="/contact") pagenum=6;
-  if(pagePath==="/statistics") pagenum=2;
+  if(pagePath==="/subscriptions") pagenum=5;
+  if(pagePath==="/reviews") pagenum=1;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,34 +40,18 @@ function Navbar() {
                 </Link>
             </li>
             <li className={`li ${(pagenum===1)? "selected" : ""}`}>
-              <Link to='/paris-agreement'>
-                <a href="#" className={`a ${(pagenum===1)? "selected" : ""}`}>Paris Agreement</a>
+              <Link to='/reviews'>
+                <a href="#" className={`a ${(pagenum===1)? "selected" : ""}`}>Reviews</a>
               </Link>
-            </li>
-            
-            <li className={`li ${(pagenum===2)? "selected" : ""}`}>
-            <Link to="/stats">
-                <a href="#" className={`a ${(pagenum===2)? "selected" : ""}`}>Statistics</a>
-            </Link>
-
-            </li>
-
-            <li className={`li ${(pagenum===3)? "selected" : ""}`}>
-                <a href="#" className={`a ${(pagenum===3)? "selected" : ""}`}>Financial Flow</a>
             </li>
             <li className={`li ${(pagenum===4)? "selected" : ""}`}>
               <Link to='/faq'>
-                <a href="#" className={`a ${(pagenum===4)? "selected" : ""}`}>Q&A</a>
+                <a href="#" className={`a ${(pagenum===4)? "selected" : ""}`}>FAQ</a>
               </Link>
             </li>
             <li className={`li ${(pagenum===5)? "selected" : ""}`}>
-              <Link to='/donate'>
-                <a href="#" className={`a ${(pagenum===5)? "selected" : ""}`}>Donate</a>
-              </Link>
-            </li>
-            <li className={`li ${(pagenum===6)? "selected" : ""}`}>
-              <Link to='/contact'>
-                <a href="#" className={`a ${(pagenum===6)? "selected" : ""}`}>Contact</a>
+              <Link to='/subscriptions'>
+                <a href="#" className={`a ${(pagenum===5)? "selected" : ""}`}>Subscriptions</a>
               </Link>
             </li>
       </ul>

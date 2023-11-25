@@ -10,9 +10,8 @@ function Footer(){
         <div className='footer-container' >
             
             <div className='footer-content1'>
-                <div className='footer-t'><h1 className='footer-t'>Greentech</h1></div>
-                <div className='footer-t'><TextP fontsize='14pt' colour='white' name="We are a reliable source of information and resources to 
-                help individuals and organizations understand the causes, effects, and solutions to pollution."></TextP></div>
+                <div className='footer-t'><h1 className='footer-t'>Merit Youth</h1></div>
+                <div className='footer-t'><TextP fontsize='14pt' colour='white' name="We strive to connect the youth for a greater tomorrow, and a more entertaining today."></TextP></div>
                 
                 <div className='social-icons'>
                     <div className='fb-ico'></div>
@@ -31,14 +30,19 @@ function Footer(){
                     </Link>
                     </li>
                     <li className='li-footer'>
-                    <Link to='/paris-agreement'>
-                        <a href="#" className='a footer'>Paris Agreement</a>
+                    <Link to='/reviews'>
+                        <a href="#" className='a footer'>Reviews</a>
                     </Link>
                     </li>
                     <li className='li-footer'>
-                        <a href="#" className='a footer'>About</a>
+                    <Link to='subscriptions'>
+                        <a href="#" className='a footer'>Subscriptions</a>
+                    </Link>
                     </li>
+
+
                     <li className='li-footer'>
+                        <Link to='faq'></Link>
                         <a href="#" className='a footer'>Contact</a>
                     </li>
                 </ul>
