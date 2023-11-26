@@ -41,7 +41,15 @@ function Middle() {
 
     return (
         <div className='slide-parent'>
-            <TextTitle name="feel free to browse our discounts:"></TextTitle>
+            <div className='information'>
+                <h1 className='titles'>How do I use those special discounts and rewards?</h1>
+                <div className='line'></div>
+                <p className='text-body'>Simply click on whatever you want to redeem, and let the cashier know that
+                you have a Merit code. They will scan the generated QR and you'll enjoy the special treatment. Please
+                pay attention to the number of times you can claim a reward, and look out for limited time discounts
+                that will appear every once in a while! </p>
+            </div>
+
             <h1 className="slide-head">Food and beverages</h1>
             <div className="slideshow">
                 <div
@@ -93,7 +101,7 @@ function Middle() {
                     ))}
                 </div>
             </div>
-            <br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/>
         </div>
     );
 }
